@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <h1>Lista Ordenada</h1>
+    <style>
+        #input {
+            display: flex;
+        }
+
+        #Yname,
+        button {
+            margin-left: 4px;
+        }
+    </style>
+</header>
+
+<body>
+    <div id="input" style="width: 30%;">
+        <label for="Yname">Nome: </label>
+        <input type="text" id="Yname" name="Yname">
+        <button onclick="inserir()">Inserir</button>
+    </div>
+    <div id="listaNomes"></div>
+    <script>
+        var listaNomes = document.getElementById("listaNomes");
+        var Lista = [];
+
+        function inserir(Lista) {
+            var nome = document.getElementById("Yname").value;
+            if (nome != "") {
+              for (var ind = 0; ind < (Lista.length); ind++){
+                    listaNomes.innerHTML = listaNomes.innerHTML + "<p><b>" + ind + " - </b>" + Lista[ind] + "</p>";
+                }//ainda não esta exibindo na tela corretamente..
+                addNome(nome);
+            } else { alert("Digite um nome para adicionar à lista!"); }
+        }
+
+        function addNome(nome) {
+            toString(nome);
+            Lista.push(nome);
+            var j = 0;
+            while (j < Lista.length - 1) {
+                for (var i = 0; i < Lista.length - 1; i++) {
+                    if (Lista[i] > Lista[i + 1]) {
+                        var aux = Lista[i];
+                        Lista[i] = Lista[i + 1];
+                        Lista[i + 1] = aux;
+                    }
+                }
+                j += 1;            
+            }
+        }
+
+    </script>
+</body>
+</html>
