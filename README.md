@@ -1,5 +1,5 @@
 # Web-Programming
-Here is my projects/exercices of the Web Programming
+Here is my contribution to GuttiEz's Web Programming projects/exercises.
 --
 Script that creates an HTML page that allows the user to enter names into an input field, add them to a list, and display the list in alphabetical order. The script uses JavaScript to manipulate the HTML content and update it in real-time as the user interacts with the form. When the user enters a valid name, it is added to the list, which is automatically sorted in alphabetical order, and displayed in the numbered list area according to its position in the list. If the user tries to enter an empty name, they receive an alert message asking them to enter a valid name
 
