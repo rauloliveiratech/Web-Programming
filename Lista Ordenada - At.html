@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html>
 <header>
-    <h1>Lista Ordenada - teste</h1>
-    <style>
-        #input {
-            display: flex;
-        }
+  <h1>Lista Alfabética de nomes Ordenada</h1>
+  <style>
+    #input {
+      display: flex;
+      margin-bottom: 10px;
+    }
 
-        #Yname,
-        button {
-            margin-left: 4px;
-        }
-    </style>
+    #Yname,
+    button {
+      margin-left: 4px;
+    }
+  </style>
 </header>
 
 <body>
-    <div id="input" style="width: 30%;">
-        <label for="Yname">Nome: </label>
-        <input type="text" id="Yname" name="Yname">
-        <button onclick="inserir()">Inserir</button>
-    </div>
-    <div id="listaNomes"></div>
-    <script>
-        var listaNomes = document.getElementById("listaNomes");
-        var Lista = [];
+  <div id="input" style="width: 30%;">
+    <label for="Yname">Nome: </label>
+    <input type="text" id="Yname" name="Yname">
+    <button onclick="inserir()">Inserir</button>
+  </div>
+  <div id="listaNomes"></div>
 
-        function inserir(Lista) {
-            var nome = document.getElementById("Yname").value;
-            if (nome != "") {
-              for (var ind = 0; ind < (Lista.length); ind++){
-                    listaNomes.innerHTML = listaNomes.innerHTML + "<p><b>" + ind + " - </b>" + Lista[ind] + "</p>";
-                }//ainda não esta exibindo na tela corretamente..
-                addNome(nome);
-            } else { alert("Digite um nome para adicionar à lista!"); }
-        }
+  <script>
+    var listaNomes = document.getElementById("listaNomes");
+    var Lista = [];
 
-        function addNome(nome) {
-            toString(nome);
-            Lista.push(nome);
-            var j = 0;
-            while (j < Lista.length - 1) {
-                for (var i = 0; i < Lista.length - 1; i++) {
-                    if (Lista[i] > Lista[i + 1]) {
-                        var aux = Lista[i];
-                        Lista[i] = Lista[i + 1];
-                        Lista[i + 1] = aux;
-                    }
-                }
-                j += 1;            
-            }
-        }
+    function inserir() {
+      var nome = document.getElementById("Yname").value.trim();
+      if (nome != "") {
+        addNome(nome);
+        exibirLista();
+      } else {
+        alert("Digite um nome para adicionar à lista!");
+      }
+    }
 
-    </script>
+    function addNome(nome) {
+      Lista.push(nome);
+      Lista.sort();
+    }
+
+    function exibirLista() {
+      listaNomes.innerHTML = "";
+      for (var i = 0; i < Lista.length; i++) {
+        listaNomes.innerHTML += "<p><b>" + (i+1) + " - </b>" + Lista[i] + "</p>";
+      }
+    }
+  </script>
 </body>
 </html>
